@@ -31,10 +31,12 @@
         }
     </script>
     <style>
-        /* 縦書きテキスト */
-        .vertical-text {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
+        /* 縦書きテキスト (mdスクリーン以上で適用) */
+        @media (min-width: 768px) {
+            .vertical-text {
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+            }
         }
 
         /* スクロール時のヘッダー背景 */
@@ -75,8 +77,9 @@
                     class="w-full h-full object-cover filter grayscale">
             </div>
             <div class="w-full md:w-2/5 h-1/2 md:h-full flex items-center justify-center bg-white">
-                <h1 id="hero-title" class="vertical-text h-full py-24 text-4xl font-serif tracking-widest">
-                    人と自然の成長をつなぎ、雪とともに未来を拓く
+                <h1 id="hero-title"
+                    class="text-2xl md:text-4xl text-center md:text-left font-serif tracking-widest md:h-full md:py-24 vertical-text">
+                    人と自然の成長をつなぎ、<br class="md:hidden">雪とともに未来を拓く
                 </h1>
             </div>
         </section>
