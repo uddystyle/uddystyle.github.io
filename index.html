@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@500&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -23,8 +20,8 @@
                         'serif': ['"Shippori Mincho"', 'serif'],
                     },
                     colors: {
-                        'base': '#F7F7F7',
-                        'dark': '#222222',
+                        'base': '#F7F7F7', // Off-white
+                        'dark': '#222222', // Dark Gray
                     }
                 }
             }
@@ -39,14 +36,13 @@
             }
         }
 
-        /* スクロール時のヘッダー背景 */
-        #navbar.scrolled {
+        /* ▼▼▼ ヘッダーのスタイルを統一 ▼▼▼ */
+        #navbar {
             background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
         }
     </style>
 </head>
-
 <body class="bg-white text-dark font-sans">
 
     <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
@@ -58,28 +54,22 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#business" class="hover:text-opacity-70 text-sm tracking-widest text-dark">BUSINESS</a>
-                        <a href="#philosophy"
-                            class="hover:text-opacity-70 text-sm tracking-widest text-dark">PHILOSOPHY</a>
+                        <a href="#philosophy" class="hover:text-opacity-70 text-sm tracking-widest text-dark">PHILOSOPHY</a>
                         <a href="#message" class="hover:text-opacity-70 text-sm tracking-widest text-dark">MESSAGE</a>
                         <a href="#company" class="hover:text-opacity-70 text-sm tracking-widest text-dark">COMPANY</a>
-                        <a href="#contact"
-                            class="bg-dark text-white hover:bg-opacity-80 px-6 py-2 text-sm tracking-widest transition-colors">CONTACT</a>
+                        <a href="#contact" class="bg-dark text-white hover:bg-opacity-80 px-6 py-2 text-sm tracking-widest transition-colors">CONTACT</a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
     <main>
         <section id="home" class="h-screen flex flex-col md:flex-row">
             <div class="w-full md:w-3/5 h-1/2 md:h-full">
-                <img id="hero-image" src="./src/img/top.JPG" alt="雪景色"
-                    class="w-full h-full object-cover filter grayscale">
+                <img id="hero-image" src="./src/img/top.JPG" alt="雪景色" class="w-full h-full object-cover filter grayscale">
             </div>
-            <div
-                class="w-full md:w-2/5 h-1/2 md:h-full flex items-center justify-center bg-white">
-                <h1 id="hero-title"
-                    class="text-2xl md:text-4xl text-center md:text-left font-serif tracking-widest vertical-text leading-relaxed md:leading-loose">
+            <div class="w-full md:w-2/5 h-1/2 md:h-full flex items-center justify-center bg-white">
+                <h1 id="hero-title" class="text-2xl md:text-4xl text-center md:text-left font-serif tracking-widest vertical-text leading-relaxed md:leading-loose">
                     人と自然の成長をつなぎ、<br>雪とともに未来を拓く
                 </h1>
             </div>
@@ -112,7 +102,7 @@
                 <div>
                     <h2 class="section-title text-5xl md:text-7xl font-bold tracking-tighter">PHILOSOPHY</h2>
                     <p class="g-fade-up mt-12 text-lg leading-loose">【人と自然の成長をつなぎ、雪とともに未来を拓く】</p>
-                    <p class="g-fade-up mt-8 text-s leading-relaxed max-w-2xl mx-auto text-left">
+                    <p class="g-fade-up mt-8 text-sm leading-relaxed max-w-2xl mx-auto text-left">
                         私たち株式会社R.S.Kはこの理念のもと、スキーやスポーツを通じて人の成長を支え、社会とつながる機会を提供しています。私たちは、雪や自然環境を守りながら、挑戦する楽しさや成功を讃え合う文化を次世代に残すことを目指しています。
                     </p>
                 </div>
@@ -134,7 +124,7 @@
                         <p class="mt-4 text-sm leading-relaxed">雪や自然への敬意を忘れず、持続可能な環境づくりに取り組みます。</p>
                     </div>
                 </div>
-                <p class="g-fade-up mt-20 text-s leading-relaxed max-w-2xl mx-auto text-left">
+                <p class="g-fade-up mt-20 text-sm leading-relaxed max-w-2xl mx-auto text-left">
                     R.S.Kは、この理念と価値観を基盤に、スキースクール事業を中心に様々な事業を展開しています。スポーツを通じて人と社会の成長をつなぎ、未来に向けた新しい可能性を創り続けてまいります。
                 </p>
             </div>
@@ -170,11 +160,11 @@
                             <dt class="w-full md:w-1/4 font-bold">社名</dt>
                             <dd class="w-full md:w-3/4 mt-1 md:mt-0">株式会社R.S.K（アールエスケー）</dd>
                         </div>
-                        <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4">
+                         <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4">
                             <dt class="w-full md:w-1/4 font-bold">設立</dt>
                             <dd class="w-full md:w-3/4 mt-1 md:mt-0">2025年8月29日</dd>
                         </div>
-                        <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4">
+                         <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4">
                             <dt class="w-full md:w-1/4 font-bold">本社</dt>
                             <dd class="w-full md:w-3/4 mt-1 md:mt-0">東京都台東区浅草</dd>
                         </div>
@@ -182,7 +172,7 @@
                             <dt class="w-full md:w-1/4 font-bold">代表者</dt>
                             <dd class="w-full md:w-3/4 mt-1 md:mt-0">代表取締役　沖山 正裕</dd>
                         </div>
-                        <div class="flex flex-col md:flex-row pb-4">
+                         <div class="flex flex-col md:flex-row pb-4">
                             <dt class="w-full md:w-1/4 font-bold">事業内容</dt>
                             <dd class="w-full md:w-3/4 mt-1 md:mt-0">
                                 スキースクール事業<br>
@@ -203,8 +193,7 @@
                     <h2 class="section-title text-5xl md:text-7xl font-bold tracking-tighter">CONTACT</h2>
                     <p class="g-fade-up mt-12 text-sm leading-relaxed">事業に関するご相談など、お気軽にお問い合わせください。</p>
                     <div class="g-fade-up mt-12">
-                        <a href="#"
-                            class="inline-block bg-white text-dark hover:bg-opacity-80 px-12 py-4 text-sm tracking-widest transition-colors">
+                         <a href="#" class="inline-block bg-white text-dark hover:bg-opacity-80 px-12 py-4 text-sm tracking-widest transition-colors">
                             お問い合わせフォームへ
                         </a>
                     </div>
@@ -223,7 +212,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             gsap.registerPlugin(ScrollTrigger);
 
             gsap.set(".g-fade-up", { y: 40, opacity: 0 });
@@ -231,8 +220,7 @@
             // --- PAGE LOAD ANIMATION ---
             const tl = gsap.timeline();
             tl.from("#hero-image", { scale: 1.1, duration: 1.5, ease: "power4.out" })
-                .from("#hero-title", { x: 40, opacity: 0, duration: 1, ease: "power4.out" }, "-=1")
-                .from("#logo, #navbar a", { y: -30, opacity: 0, stagger: 0.1, ease: "power4.out" }, "-=0.5");
+              .from("#hero-title", { x: 40, opacity: 0, duration: 1, ease: "power4.out" }, "-=1");
 
             // --- SCROLL-TRIGGERED ANIMATIONS ---
             const sections = document.querySelectorAll('section:not(#home)');
@@ -240,7 +228,7 @@
                 const title = section.querySelector('.section-title');
                 const content = section.querySelectorAll('.g-fade-up');
 
-                if (title) {
+                if(title) {
                     gsap.from(title, {
                         y: 50,
                         opacity: 0,
@@ -252,8 +240,8 @@
                         }
                     });
                 }
-                if (content.length > 0) {
-                    gsap.to(content, {
+                if(content.length > 0) {
+                     gsap.to(content, {
                         y: 0,
                         opacity: 1,
                         stagger: 0.15,
@@ -266,20 +254,7 @@
                     });
                 }
             });
-
-            // --- NAVBAR BACKGROUND CHANGE ---
-            const navbar = document.getElementById('navbar');
-            const heroSection = document.getElementById('home');
-
-            ScrollTrigger.create({
-                trigger: heroSection,
-                start: "bottom top",
-                end: "bottom top",
-                onEnter: () => navbar.classList.add('scrolled'),
-                onLeaveBack: () => navbar.classList.remove('scrolled'),
-            });
         });
     </script>
 </body>
-
 </html>
