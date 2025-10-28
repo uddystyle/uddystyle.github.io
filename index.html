@@ -39,6 +39,14 @@
         }
       }
 
+      /* モバイル画面での句読点での折り返し */
+      @media (max-width: 767px) {
+        #philosophy p {
+          word-break: keep-all;
+          overflow-wrap: break-word;
+        }
+      }
+
       /* ▼▼▼ ヘッダーのスタイルを統一 ▼▼▼ */
       #navbar {
         background-color: rgba(255, 255, 255, 0.9);
@@ -230,7 +238,14 @@
               <p>
                 これからもR.S.Kは、スポーツを通じて人と社会に新しい可能性を拓き、未来の子どもたちが雪とともに成長できる環境を守りながら、皆さまと共に歩んでまいります。
               </p>
-              <p class="text-right mt-8">株式会社R.S.K 代表取締役 沖山 正裕</p>
+              <div class="text-right mt-8">
+                <img
+                  src="./src/img/sign.png"
+                  alt="代表取締役サイン"
+                  class="inline-block w-32 md:w-40 mb-2"
+                />
+                <p>株式会社R.S.K 代表取締役 沖山 正裕</p>
+              </div>
             </div>
           </div>
         </div>
