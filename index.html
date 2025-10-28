@@ -41,9 +41,36 @@
 
       /* モバイル画面での日本語テキストの折り返し */
       @media (max-width: 767px) {
-        #philosophy p {
+        /* 4つのカードは句読点でのみ改行 */
+        .philosophy-cards p {
           word-break: keep-all;
           overflow-wrap: normal;
+          white-space: normal;
+        }
+        /* タイトルはモバイルで改行表示 */
+        .philosophy-title .mobile-br {
+          display: block;
+        }
+        .philosophy-title .no-break {
+          white-space: nowrap;
+        }
+        /* その他のテキストは通常の改行 */
+        #philosophy > div > div > p:not(.philosophy-title),
+        #philosophy > div > p:not(.philosophy-title) {
+          word-break: normal;
+          overflow-wrap: break-word;
+        }
+        /* モバイルで【】を非表示 */
+        .bracket-left,
+        .bracket-right {
+          display: none;
+        }
+      }
+
+      /* デスクトップでは改行を非表示 */
+      @media (min-width: 768px) {
+        .mobile-br {
+          display: none;
         }
       }
 
@@ -167,8 +194,8 @@
             >
               PHILOSOPHY
             </h2>
-            <p class="g-fade-up mt-12 text-lg leading-loose">
-              【人と自然の成長をつなぎ、雪とともに未来を拓く】
+            <p class="g-fade-up mt-12 text-lg leading-loose philosophy-title">
+              <span class="bracket-left">【</span><span class="no-break">人と自然の成長をつなぎ、</span><br class="mobile-br"><span class="no-break">雪とともに未来を拓く</span><span class="bracket-right">】</span>
             </p>
             <p
               class="g-fade-up mt-8 text-sm leading-relaxed max-w-2xl mx-auto text-left"
