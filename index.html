@@ -39,11 +39,12 @@
         }
       }
 
-      /* モバイル画面での句読点での折り返し */
+      /* モバイル画面での日本語テキストの折り返し */
       @media (max-width: 767px) {
         #philosophy p {
-          word-break: keep-all;
-          overflow-wrap: break-word;
+          word-break: normal;
+          overflow-wrap: anywhere;
+          line-break: strict;
         }
       }
 
@@ -234,6 +235,7 @@
                 株式会社R.S.Kのホームページをご覧いただきありがとうございます。
                 R.S.Kには「高みを目指し（Rise）、成功を分かち合い（Success）、互いを讃え合う（Kudos）」という想いを込めています。
                 私たちはスキーを通じて、人が成長し、挑戦する楽しさを分かち合うことを大切にしてきました。スキースクールや選手育成にとどまらず、就職支援やキャリアカウンセリング、イベント運営などを通じて、スポーツと人生、地域と社会をつなげています。
+                近年、地球温暖化によって雪資源が減少し、私たちを取り巻くスキー環境は大きな課題に直面しており、雪や自然を次の世代に残していくことは私たちの使命であると考えております。これはSDGsが掲げる「気候変動への対策」や「自然環境の保全」にもつながる活動でもあると考えており、今後も積極的に取り組んでいきたいと考えております。
               </p>
               <p>
                 これからもR.S.Kは、スポーツを通じて人と社会に新しい可能性を拓き、未来の子どもたちが雪とともに成長できる環境を守りながら、皆さまと共に歩んでまいります。
@@ -306,8 +308,8 @@
       </section>
 
       <section id="contact" class="py-28 sm:py-36 bg-dark text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
             <h2
               class="section-title text-5xl md:text-7xl font-bold tracking-tighter"
             >
@@ -317,14 +319,77 @@
               事業に関するご相談など、お気軽にお問い合わせください。
             </p>
             <div class="g-fade-up mt-12">
-              <a
-                href="#"
-                class="inline-block bg-white text-dark hover:bg-opacity-80 px-12 py-4 text-sm tracking-widest transition-colors"
+              <button
+                id="contact-form-toggle"
+                class="inline-block bg-white text-dark hover:bg-opacity-80 px-12 py-4 text-sm tracking-widest transition-colors font-bold"
               >
-                お問い合わせフォームへ
-              </a>
+                お問い合わせはこちらから
+              </button>
             </div>
           </div>
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/mqagpkyl"
+            method="POST"
+            class="mt-12 space-y-6 text-left overflow-hidden transition-all duration-500 ease-in-out"
+            style="max-height: 0; opacity: 0;"
+          >
+            <div>
+              <label for="name" class="block text-sm font-bold mb-2">
+                お名前 <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 bg-white text-dark border-0 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 text-sm"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-bold mb-2">
+                メールアドレス <span class="text-red-400">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 bg-white text-dark border-0 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 text-sm"
+              />
+            </div>
+            <div>
+              <label for="subject" class="block text-sm font-bold mb-2">
+                件名
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="w-full px-4 py-3 bg-white text-dark border-0 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 text-sm"
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-bold mb-2">
+                お問い合わせ内容 <span class="text-red-400">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                class="w-full px-4 py-3 bg-white text-dark border-0 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 resize-none text-sm"
+              ></textarea>
+            </div>
+            <div class="text-center pt-4">
+              <button
+                type="submit"
+                class="inline-block bg-white text-dark hover:bg-opacity-80 px-12 py-4 text-sm tracking-widest transition-colors font-bold"
+              >
+                送信する
+              </button>
+            </div>
+          </form>
         </div>
       </section>
     </main>
@@ -345,6 +410,32 @@
         gsap.registerPlugin(ScrollTrigger);
 
         gsap.set(".g-fade-up", { y: 40, opacity: 0 });
+
+        // --- CONTACT FORM TOGGLE ---
+        const toggleButton = document.getElementById("contact-form-toggle");
+        const contactForm = document.getElementById("contact-form");
+        let isFormOpen = false;
+
+        toggleButton.addEventListener("click", function() {
+          if (!isFormOpen) {
+            // フォームを開く
+            contactForm.style.maxHeight = contactForm.scrollHeight + "px";
+            contactForm.style.opacity = "1";
+            toggleButton.textContent = "フォームを閉じる";
+            isFormOpen = true;
+
+            // スムーズにスクロール
+            setTimeout(() => {
+              contactForm.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }, 100);
+          } else {
+            // フォームを閉じる
+            contactForm.style.maxHeight = "0";
+            contactForm.style.opacity = "0";
+            toggleButton.textContent = "お問い合わせはこちらから";
+            isFormOpen = false;
+          }
+        });
 
         // --- PAGE LOAD ANIMATION ---
         const tl = gsap.timeline();
